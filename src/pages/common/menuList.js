@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from 'antd';
+import { Menu, Icon } from 'antd';
 import { POST } from '../../libs/http';
 
 const SubMenu = Menu.SubMenu;
@@ -35,7 +35,7 @@ class MenuList extends Component {
             : (
               this.state.menuList.map((level1, level1Index) => (
                 level1.children && level1.children.length > 0 ?
-                <SubMenu key={level1.muenName + level1Index} title={<span><span>{level1.muenName}</span></span>}>
+                <SubMenu key={level1.muenName + level1Index} title={<span><Icon type="bars" /><span>{level1.muenName}</span></span>}>
                   {
                     level1.children.map((level2, level2Index) => (
                       level2.children && level2.children.length > 0 ?

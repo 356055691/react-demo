@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { POST, YZM } from '../../libs/http';
 import { Form, Icon, Input, Button, Card, notification } from 'antd';
 import '../../scss/common/login.scss';
+import cookie from 'react-cookies'
 
 const FormItem = Form.Item;
 
@@ -33,6 +34,7 @@ class Login extends Component {
         };
         POST('/login', params, true).then((res) => {
           if (res && res.code === 1000) {
+            cookie.save('loginName', res.data.user.loginName);
             notification.success({
               message: '提示',
               description: '登录成功！',

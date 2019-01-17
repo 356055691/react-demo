@@ -9,6 +9,7 @@ import RouterList from '../../router';
 import { createBrowserHistory } from 'history';
 import asyncComponent from '../../libs/AsyncComponent';
 import { GET } from '../../libs/http';
+import cookie from 'react-cookies'
 const Login = asyncComponent(() => import('../../pages/common/login'));
 
 const history = createBrowserHistory();
@@ -17,7 +18,8 @@ const { Header, Content, Sider } = Layout;
 
 class LayoutPage extends Component {
   state = {
-    collapsed: false
+    collapsed: false,
+    loginName: cookie.load('loginName')
   };
   toggle = () => {
     this.setState({
@@ -73,7 +75,7 @@ class LayoutPage extends Component {
                         </Menu>
                       } trigger={['click']}>
                         <span style={{ cursor: 'pointer' }}>
-                          管理员<Icon type="down" />
+                          {this.state.loginName}<Icon type="down" />
                         </span>
                       </Dropdown>
                     </Col>
