@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { POST } from '../../libs/http';
+import { POST, YZM } from '../../libs/http';
 import { Form, Icon, Input, Button, Card, notification } from 'antd';
 import '../../scss/common/login.scss';
 
@@ -12,12 +12,15 @@ class Login extends Component {
       picUrl: ''
     }
   }
-  componentDidMount(){
-    setTimeout(() => {
+  componentDidMount() {
+    this.yzmFun();
+  };
+  yzmFun() {
+    YZM('/yzm', {}).then((res) => {
       this.setState({
-        picUrl: 'https://www.baidu.com/img/bd_logo1.png?where=super'
+        picUrl: res
       });
-    }, 3000);
+    });
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +46,7 @@ class Login extends Component {
               message: '提示',
               description: res.msg,
             });
+            this.yzmFun();
           }
         });
       }
@@ -72,7 +76,7 @@ class Login extends Component {
               rules: [{ required: true, message: '请输入验证码！' }],
             })(
               <Input
-                addonAfter={<div style={{width: '80px'}}><img style={{ width: '100%', height: '30px' }} src={this.state.picUrl} alt="yzm" /></div>}
+                addonAfter={<div style={{width: '80px'}}><img onClick={()=>this.yzmFun()} style={{ width: '100%', height: '30px', cursor: 'pointer' }} src={this.state.picUrl} alt="yzm" /></div>}
                 prefix={<Icon type="picture"
                 style={{ fontSize: 13 }} />}
                 placeholder="请输入验证码" />
