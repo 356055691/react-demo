@@ -38,6 +38,27 @@ function POST(url, params, form) {
   });
 }
 
+function GET(url, params) {
+  let apiUrl = '';
+	if (process.env.NODE_ENV === 'development') {
+		apiUrl = `${apiPath.dev}${url}`;
+	}
+	if (process.env.NODE_ENV === 'production') {
+		apiUrl = `${apiPath.pro}${url}`;
+	}
+  return axios({
+    method: 'get',
+    url: apiUrl,
+    params: qs.stringify(params)
+  }).then((res) => {
+    if (res && res.data) {
+      return res.data;
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+}
+
 function YZM(url, params) {
 	let apiUrl = '';
 	if (process.env.NODE_ENV === 'development') {
@@ -63,6 +84,7 @@ function YZM(url, params) {
 
 
 export {
-	POST,
+  POST,
+  GET,
 	YZM
 };
