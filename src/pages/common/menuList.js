@@ -42,17 +42,17 @@ class MenuList extends Component {
                       <SubMenu key={level2.muenName + level2Index} title={level2.muenName}>
                         {
                           level2.children.map((level3, level3Index) => (
-                            <Menu.Item key={level3Index}><Link to={level3.uri}>{level3.muenName}</Link></Menu.Item>
+                            <Menu.Item key={level3Index}><Link to={`/page${level3.uri}`}>{level3.muenName}</Link></Menu.Item>
                           ))
                         }
                       </SubMenu>
                       :
-                      <Menu.Item key={level2.muenName + level2Index}><Link to={level2.uri}>{level2.muenName}</Link></Menu.Item>
+                      <Menu.Item key={level2.muenName + level2Index}><Link to={`/page${level2.uri}`}>{level2.muenName}</Link></Menu.Item>
                     ))
                   }
                 </SubMenu>
                 :
-                <Menu.Item key={level1.muenName + level1Index}><Link to={level1.uri}>{level1.muenName}</Link></Menu.Item>
+                <Menu.Item key={level1.muenName + level1Index}><Link to={`/page${level1.uri}`}>{level1.muenName}</Link></Menu.Item>
               ))
             )
           }

@@ -39,10 +39,10 @@ class Login extends Component {
               message: '提示',
               description: '登录成功！',
             });
-            this.props.history.push('/undone/list');
-            setTimeout(() => {
-              window.location.reload();
-            }, 1000);
+            this.props.history.push('/page/undone/list');
+            // setTimeout(() => {
+            //   window.location.reload();
+            // }, 1000);
           } else {
             notification.warning({
               message: '提示',

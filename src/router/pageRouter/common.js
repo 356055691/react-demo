@@ -3,7 +3,7 @@ const Login = asyncComponent(() => import('../../pages/common/login'));
 
 export default [
   {
-    path: '/login',
+    path: '/page/login',
     component: Login
   }
 ];

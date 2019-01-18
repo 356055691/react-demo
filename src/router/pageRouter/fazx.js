@@ -3,7 +3,7 @@ const DivisionList = asyncComponent(() => import('../../pages/fazx/ajzx/division
 
 export default [
   {
-    path: '/division/list',
+    path: '/page/division/list',
     component: DivisionList
   }
 ];

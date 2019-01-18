@@ -16,7 +16,7 @@ class UndoneList extends Component {
   render() {
     return (
       <div>
-        <Link to="/phonecollection/list">phonecollection_list</Link>
+        <Link to="/page/phonecollection/list">phonecollection_list</Link>
         <CommonForm formTitle={this.state.formTitle}></CommonForm>
       </div>
     );

@@ -4,11 +4,11 @@ const PhonecollectionList = asyncComponent(() => import('../../pages/gzzx/phonec
 
 export default [
   {
-    path: '/undone/list',
+    path: '/page/undone/list',
     component: UndoneList
   },
   {
-    path: '/phonecollection/list',
+    path: '/page/phonecollection/list',
     component: PhonecollectionList
   }
 ];

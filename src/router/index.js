@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import FazxRoute from './pageRouter/fazx';
 import GzzxRoute from './pageRouter/gzzx';
 // import CommonRoute from './pageRouter/common';
@@ -17,13 +17,11 @@ class RouterList extends Component {
   render() {
     return (
       <div>
-        <Switch>
-          {
-            this.state.routerList.map((val) => (
-              <Route key={val.path} exact path={val.path} component={ val.component }/>
-            ))
-          }
-        </Switch>
+        {
+          this.state.routerList.map((val) => (
+            <Route key={val.path} exact path={val.path} component={ val.component }/>
+          ))
+        }
       </div>
     );
   }
